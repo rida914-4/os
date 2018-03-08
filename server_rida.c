@@ -93,7 +93,7 @@ char* verify_request(char *data){
 }
 
 
-#define MAXCHAR 1024
+#define MAXCHAR 4096
 char read_file(char *file_name, char *response){
 
 	int *thread_id = pthread_self();
@@ -111,8 +111,10 @@ char read_file(char *file_name, char *response){
         return 1;
     }
     
+    	//fgets(str, MAXCHAR, file);
 	while (fgets(str, MAXCHAR, file) != NULL)
-        sprintf(response, "%s", str);
+        	strcat(response, str);
+        //sprintf(response, "%s", str);
         
         
 	
@@ -562,7 +564,6 @@ printf("Parent quiting\n");
 return 0;
 
 }
-
 
 
 
