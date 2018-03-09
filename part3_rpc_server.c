@@ -10,11 +10,19 @@ int *
 image_compression_function_1_svc(images *argp, struct svc_req *rqstp)
 {
 	static int  result;
-
+	char *image_name;
+	image_name = malloc(100);
+	
+	image_name = argp->a;
+	//strcpy(image_name, argp->a);
+	
 	/*
 	 * insert server code here
 	 */
 	 printf("Server running..\n");
+	 printf("Image name recieved %s", image_name);
+	 
+	 
 
 	return &result;
 }
