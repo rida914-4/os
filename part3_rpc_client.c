@@ -15,7 +15,7 @@ compressimage_1(char *host, char *x)
 	images  image_compression_function_1_arg;
 
 #ifndef	DEBUG
-	printf("keep 'em coming %s", x);
+	image_compression_function_1_arg.a = x;
 	clnt = clnt_create (host, COMPRESSIMAGE, COMPRESS_VERS, "udp");
 	if (clnt == NULL) {
 		clnt_pcreateerror (host);
@@ -26,6 +26,9 @@ compressimage_1(char *host, char *x)
 	result_1 = image_compression_function_1(&image_compression_function_1_arg, clnt);
 	if (result_1 == (int *) NULL) {
 		clnt_perror (clnt, "call failed");
+	}
+	else{
+		printf("Result from compression function:  %s", result_1);
 	}
 #ifndef	DEBUG
 	clnt_destroy (clnt);
