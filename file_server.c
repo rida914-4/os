@@ -44,7 +44,7 @@ int* send_file_1_svc(chunksend *rec, struct svc_req *rqstp)
     //rec->name = "rida";
     
     
-    file = fopen("1rida.txt", "a");
+    file = fopen("test.jpg", "wb");
     if (file == NULL) {
         result = errno;
         printf("Null file recieved!\n");
